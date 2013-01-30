@@ -1,2 +1,5 @@
 *.swp
 *.private
+.state*
+.pid
+*.pyc
