@@ -1,0 +1,4 @@
+#!/bin/bash
+USER="www-data"
+COMMAND="python minutes.py"
+sudo -u $USER $COMMAND &
