@@ -6,39 +6,15 @@ from os import chmod, \
                getppid
 from shutil import copyfile
 from time import time
-
-# TODO:
-#   * Write ./start and ./stop scripts
+from minutes_config import TITLE, \
+                           CATEGORIES, \
+                           SUBCATEGORIES, \
+                           IPS, \
+                           HOST, \
+                           PORT, \
+                           DEBUG
 
 app = Flask(__name__)
-
-TITLE = "DLS Section Meeting Minutes"
-CATEGORIES = """ 
-"E-Publishing",
-"CDS",
-"Invenio",
-"Other",
-"Outreach"
-"""
-SUBCATEGORIES = """ 
-"Production",
-"Support",
-"Development",
-"BlogForever",
-"Outreach",
-"CERN-2012-",
-"CERN-2013-"
-"""
-
-IPS = ("127.0.0.1",
-       "137.138.36.53",)
-
-#HOST = "127.0.0.1"
-HOST = "0.0.0.0"
-#PORT = 5000
-PORT = 1357 #1DLS
-#DEBUG = True
-DEBUG = False
 
 @app.route('/')
 def index():
