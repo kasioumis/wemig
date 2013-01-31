@@ -644,7 +644,7 @@ $("#minutes_content").delegate("li", "mouseover", function(event) {
 });
 
 // When the mouse is not over a "li" element anymore, restore its original style
-$("#minutes_content").delegate("li", "mouseout", function() {
+$("#minutes_content").delegate("li", "mouseout", function(event) {
     if ( $(event.target).is(this) ) {
         $(this).stop(true, true).animate({
             backgroundColor: "transparent",
