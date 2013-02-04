@@ -158,7 +158,9 @@
 
             <div id="container_generate_minutes">
                 <button id="generate_minutes_button">I'm done! Generate the source.</button>
-                <textarea id="minutes_source" rows="30 "cols="121" disabled="disabled"></textarea>
+                <!-- TODO: Have this textarea disabled or not? -->
+                <!--<textarea id="minutes_source" rows="30 "cols="121" disabled="disabled"></textarea>-->
+                <textarea id="minutes_source" rows="30 "cols="84"></textarea>
             </div>
 
             <div id="minutes_content">
@@ -277,7 +279,9 @@ $("#add_category_button").click(function() {
                     }
                 }
             });
-            $("#minutes_list").disableSelection();
+            //The following line causes a bug in Firefox where input fields and
+            //textareas would not react to the left mouse click
+            //$("#minutes_list").disableSelection();
         }
 
         // Add the new category to the minutes dictionary
@@ -304,7 +308,9 @@ $("#add_category_button").click(function() {
                 }
             }
         });
-        $("#minutes_list").children("li").last().children("ul").disableSelection();
+        //The following line causes a bug in Firefox where input fields and
+        //textareas would not react to the left mouse click
+        //$("#minutes_list").children("li").last().children("ul").disableSelection();
 
         // Create the add new subcategory HTML and set up the autocompletion
         var add_subcategory_html = "<input size='40' type='text' name='add_subcategory_text' placeholder='What part of the project did you work on?' /><button name='add_subcategory_button'>&#10010;</button>"
@@ -363,7 +369,9 @@ $("#minutes_content").delegate("button[name='add_subcategory_button']", "click",
                 }
             }
         });
-        $(this).siblings("ul").children("li").last().children("ul").disableSelection();
+        //The following line causes a bug in Firefox where input fields and
+        //textareas would not react to the left mouse click
+        //$(this).siblings("ul").children("li").last().children("ul").disableSelection();
 
         // Create the add new text HTML
         var add_text_html = "<textarea rows='2' cols='75' name='add_text_text' placeholder='Describe the task you worked on...'></textarea><button name='add_text_button'>&#10010;</button>";
@@ -769,10 +777,10 @@ function create_minutes(minutes_array) {
                 }
             }
         });
-        $("#minutes_list").disableSelection();
+        //The following line causes a bug in Firefox where input fields and
+        //textareas would not react to the left mouse click
+        //$("#minutes_list").disableSelection();
     }
-
-// EXPERIMENTAL!!!
 
     for ( var i = 0; i < minutes.length; i++ ) {
 
@@ -801,7 +809,9 @@ function create_minutes(minutes_array) {
                 }
             }
         });
-        $("#minutes_list").children("li").last().children("ul").disableSelection();
+        //The following line causes a bug in Firefox where input fields and
+        //textareas would not react to the left mouse click
+        //$("#minutes_list").children("li").last().children("ul").disableSelection();
 
         for ( var j = 0; j < m_category_array.length; j++  ) {
 
@@ -830,7 +840,9 @@ function create_minutes(minutes_array) {
                     }
                 }
             });
-            $("#minutes_list").children("li").last().children("ul").children("li").last().children("ul").disableSelection();
+            //The following line causes a bug in Firefox where input fields and
+            //textareas would not react to the left mouse click
+            //$("#minutes_list").children("li").last().children("ul").children("li").last().children("ul").disableSelection();
 
             for ( var k = 0; k < m_subcategory_array.length; k++ ) {
 
@@ -857,8 +869,6 @@ function create_minutes(minutes_array) {
 
 
     };
-
-// EXPERIMENTAL!!!
 
 };
 
