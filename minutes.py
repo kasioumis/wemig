@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    if RESTRICT_BY_IP and request.remote_addr in IPS:
+    if not RESTRICT_BY_IP or ( RESTRICT_BY_IP and request.remote_addr in IPS ):
         return render_template('minutes.html',
                                categories = CATEGORIES,
                                subcategories = SUBCATEGORIES,
@@ -33,7 +33,7 @@ def index():
 
 @app.route('/save', methods=['POST'])
 def save_state():
-    if RESTRICT_BY_IP and request.remote_addr in IPS:
+    if not RESTRICT_BY_IP or ( RESTRICT_BY_IP and request.remote_addr in IPS ):
         try:
             state = request.form.get('state')
             state = state.encode('utf-8')
@@ -47,7 +47,7 @@ def save_state():
 
 @app.route('/load', methods=['GET'])
 def load_state():
-    if RESTRICT_BY_IP and request.remote_addr in IPS:
+    if not RESTRICT_BY_IP or ( RESTRICT_BY_IP and request.remote_addr in IPS ):
         try:
             f = open(".state", "r")
             state = f.read()
@@ -60,7 +60,7 @@ def load_state():
 
 @app.route('/reset', methods=['GET'])
 def reset_state():
-    if RESTRICT_BY_IP and request.remote_addr in IPS:
+    if not RESTRICT_BY_IP or ( RESTRICT_BY_IP and request.remote_addr in IPS ):
         try:
             version = str(time())
             copyfile(".state", ".state.%s" % (version,))
