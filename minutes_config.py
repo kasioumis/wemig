@@ -61,6 +61,9 @@ SUBCATEGORIES = """
 "Sequences and series"
 """
 
+# Should we restrict the access to specific IPs?
+RESTRICT_BY_IP = False
+
 # List of safe IPs to access the application
 IPS = ("127.0.0.1",
        "192.168.1.123",)

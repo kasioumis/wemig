@@ -228,6 +228,18 @@ function rqf_rev(text) {
     return text.replace(rqf_rev_re, rqf_rev_out);
 };
 
+// Handle invenio-software.org trac tickets
+var iitt_for_re = /ticket\s#(\d+)/g;
+var iitt_for_out = "<a href='http://invenio-software.org/ticket/$1'>ticket #$1</a>";
+var iitt_rev_re = /<a href=['"]http:\/\/invenio\-software\.org\/ticket\/\d+['"]>(ticket\s#\d+)<\/a>/g;
+var iitt_rev_out = "$1"
+function iitt_for(text) {
+    return text.replace(iitt_for_re, iitt_for_out);
+};
+function iitt_rev(text) {
+    return text.replace(iitt_rev_re, iitt_rev_out);
+};
+
 // Handle URLs
 var url_for_re = /((http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?)/gi
 var url_for_out = "<a href='$1'>$1</a>";
@@ -393,7 +405,7 @@ $("#minutes_content").delegate("button[name='add_subcategory_button']", "click",
 $("#minutes_content").delegate("button[name='add_text_button']", "click", function() {
 
     // Get the text
-    var add_text_text = nl2br(inc_for(rqf_for(url_for($.escapeHTML($.trim($(this).siblings("textarea").val()))))));
+    var add_text_text = nl2br(iitt_for(inc_for(rqf_for(url_for($.escapeHTML($.trim($(this).siblings("textarea").val())))))));
 
     // Make sure that there is some text
     if ( add_text_text ) {
@@ -433,7 +445,7 @@ $("#minutes_content").delegate("span", "click", function(event) {
             event.preventDefault();
         };
 
-        var original_text = br2nl(url_rev(inc_rev(rqf_rev($(this).html()))));
+        var original_text = br2nl(url_rev(iitt_rev(inc_rev(rqf_rev($(this).html())))));
 
         if ( $(this).attr("class") == "category" && $(this).children("input").length < 1 ) {
             var edit_category_html = "<input size='30' type='text' name='edit_category_text' placeholder='Which project did you work on?' value='" + original_text + "' /><button name='edit_category_button'>&#10004;</button><button name='delete_category_button'>&#10006;</button>";
@@ -536,7 +548,7 @@ $("#minutes_content").delegate("button[name='delete_subcategory_button']", "clic
 // Edit some text
 $("#minutes_content").delegate("button[name='edit_text_button']", "click", function() {
 
-    var new_text = nl2br(inc_for(rqf_for(url_for(($.escapeHTML($.trim($(this).siblings("textarea[name='edit_text_text']").val())))))));
+    var new_text = nl2br(iitt_for(inc_for(rqf_for(url_for(($.escapeHTML($.trim($(this).siblings("textarea[name='edit_text_text']").val()))))))));
 
     if ( new_text ) {
         var category_index = $(this).parent().parent().parent().parent().parent().parent().index();
