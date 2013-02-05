@@ -1,11 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, \
                   render_template, \
                   request
+
 from os import chmod, \
                getpid, \
                getppid
 from shutil import copyfile
 from time import time
+
 from minutes_config import TITLE, \
                            CATEGORIES, \
                            SUBCATEGORIES, \
@@ -30,12 +34,14 @@ def index():
 def save_state():
     if request.remote_addr in IPS:
         try:
-            state = str(request.form.get('state'))
+            state = request.form.get('state')
+            state = state.encode('utf-8')
             f = open(".state", "w")
             f.write(state)
             f.close()
             return "1"
         except:
+            print e
             return "0"
 
 @app.route('/load', methods=['GET'])
@@ -43,7 +49,8 @@ def load_state():
     if request.remote_addr in IPS:
         try:
             f = open(".state", "r")
-            state = str(f.read())
+            state = f.read()
+            state = state.decode('utf-8')
             f.close()
             chmod(".state", 0600)
             return state
