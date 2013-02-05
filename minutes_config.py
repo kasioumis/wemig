@@ -5,20 +5,60 @@ TITLE = "My title"
 
 # List of comma-separated categories to use with autocompletion
 CATEGORIES = """ 
-"Banana",
-"Apple",
-"Orange",
-"Mango",
-"Grapes"
+"Algebra",
+"Analysis",
+"Category theory",
+"Cryptography",
+"Discrete mathematics",
+"Geometry",
+"Number theory",
+"Topology"
 """
 
 # List of comma-separated subcategories to use with autocompletion
 SUBCATEGORIES = """ 
-"Seeds",
-"Juice",
-"Color",
-"Size",
-"Weight",
+"Abstract algebra",
+"Algebraic geometry",
+"Algebraic topology",
+"Commutative algebra",
+"Computer algebra",
+"Diagram algebras",
+"Elementary algebra",
+"Galois theory",
+"Homological algebra",
+"Linear algebra",
+"Mathematical identities",
+"Permutations",
+"Polynomials",
+"Symmetric functions",
+"Algebra stubs",
+"Analytic number theory",
+"Asymptotic analysis",
+"Calculus",
+"Calculus of variations",
+"Complex analysis",
+"Continuous mappings",
+"Differential operators",
+"Dynamical systems",
+"Ergodic theory",
+"Finite differences",
+"Fixed points",
+"Fourier analysis",
+"Fractals",
+"Functional analysis",
+"Generalized functions",
+"Harmonic analysis",
+"Inequalities",
+"Interpolation",
+"Inverse functions",
+"Mathematical analysts",
+"Means",
+"Norms",
+"Numerical analysis",
+"Optimization",
+"Perturbation theory",
+"Real analysis",
+"Sequences and series"
 """
 
 # List of safe IPs to access the application
