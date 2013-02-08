@@ -61,6 +61,10 @@ SUBCATEGORIES = """
 "Sequences and series"
 """
 
+# Define the category and subcategory font-weifht CSS attribute [normal|bold]
+CATEGORY_FONT_WEIGHT = "bold"
+SUBCATEGORY_FONT_WEIGHT = "bold"
+
 # Should we restrict the access to specific IPs?
 RESTRICT_BY_IP = False
 

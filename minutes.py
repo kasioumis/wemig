@@ -13,6 +13,8 @@ from time import time
 from minutes_config import TITLE, \
                            CATEGORIES, \
                            SUBCATEGORIES, \
+                           CATEGORY_FONT_WEIGHT, \
+                           SUBCATEGORY_FONT_WEIGHT, \
                            RESTRICT_BY_IP, \
                            IPS, \
                            HOST, \
@@ -27,7 +29,9 @@ def index():
         return render_template('minutes.html',
                                categories = CATEGORIES,
                                subcategories = SUBCATEGORIES,
-                               title = TITLE)
+                               title = TITLE,
+                               category_font_weight = CATEGORY_FONT_WEIGHT,
+                               subcategory_font_weight = SUBCATEGORY_FONT_WEIGHT)
     else:
         return "Access denied."
 
