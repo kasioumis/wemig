@@ -48,6 +48,7 @@ Running
 ### Deployment
 
 If you simply want to run the web application as the current user you should run:
+
 "$ python minutes.py"
 
 If you want to permanently run the web application in the background you should
