@@ -53,8 +53,11 @@ If you simply want to run the web application as the current user you should run
 If you want to permanently run the web application in the background you should
 login as root, change the "USER" variable in the "start" bash script (to the
 user you want to run the web application as) and run:
+
 "# ./start"
+
 Still as root, you my stop the web application by running:
+
 "# ./stop"
 
 ### Tested with
