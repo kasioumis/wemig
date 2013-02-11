@@ -32,7 +32,6 @@ def index():
     """
 
     if not RESTRICT_BY_IP or ( RESTRICT_BY_IP and request.remote_addr in IPS ):
-        print TEMPLATE_CONFIGURATION
         return render_template('minutes.html',
                                **TEMPLATE_CONFIGURATION)
     else:
