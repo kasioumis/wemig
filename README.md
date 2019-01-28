@@ -35,12 +35,12 @@ Installation
 ### Installation
 
 Clone the latest development sources:
-"$ git clone https://github.com/kasioumis/wemig.git"
+`$ git clone https://github.com/kasioumis/wemig.git`
 
 ### Configuration
 
 All configuration options can be found in the python configuration fule:
-"minutes_config.py"
+`minutes_config.py`
 
 Running
 -------
@@ -49,17 +49,17 @@ Running
 
 If you simply want to run the web application as the current user you should run:
 
-"$ python minutes.py"
+`$ python minutes.py`
 
 If you want to permanently run the web application in the background you should
 login as root, change the "USER" variable in the "start" bash script (to the
 user you want to run the web application as) and run:
 
-"# ./start"
+`# ./start`
 
 Still as root, you my stop the web application by running:
 
-"# ./stop"
+`# ./stop`
 
 ### Tested with
 
